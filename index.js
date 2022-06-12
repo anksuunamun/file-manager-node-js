@@ -35,6 +35,10 @@ export const fileManager = async () => {
   console.log(`You are currently in ${homeDirPath}`);
 
   class ExtendedTransform extends Transform {
+    constructor() {
+      super();
+    }
+
     async _transform(chunk, encoding, callback) {
       const chunkStringified = chunk.toString().trim();
       if (chunkStringified.match('ls')) {
